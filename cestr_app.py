@@ -4,6 +4,8 @@ app = Flask('cestr')
 
 import MySQLdb
 db = None
+db_addr = ''
+app_port = ''
 
 def open_db():
 	''' Opens the database at the given IP Address and returns the db object'''
@@ -19,8 +21,8 @@ def close_db(db):
 	# disconnect from server
 	db.close()
 
-@app.route('/get_all_records')
-def get_all_records():
+@app.route('/show_all_records')
+def show_all_records():
 	db = open_db()
 	''' Get all of the records and return them as a list of dictonarys'''
 	myList = []
@@ -39,19 +41,25 @@ def get_all_records():
 		myList = false
 
 	close_db(db)
+
+	print myList
 	return myList
 
 @app.route('/')
 @app.route('/index')
 def index():
 
-	return get_all_records()
+	return show_all_records()
 
-def main(): 
-	index()
+@app.cli.command()
+@app.cli.option('--test', help='mytest')
+def takearg(test):
+    print test
 
 if __name__ == '__main__':
 	app.config.update(
 		DEBUG = True)
+
+	   global session, tenant
 
 	app.run(host='0.0.0.0', port=5000)

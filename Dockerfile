@@ -27,4 +27,4 @@ RUN DEBIAN_FRONTEND=noninteractive pip install MySQL-python flask
 ADD cestr_app.py /opt/
 
 # By default when this container runs, simply start the application
-CMD /opt/cestr_app.py
+CMD /opt/cestr_app.py -D FOREGROUND

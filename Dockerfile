@@ -21,5 +21,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git mysql-client
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python2.7 python-pip python-dev libmysqlclient-dev
 RUN DEBIAN_FRONTEND=noninteractive pip install MySQL-python flask
 
+#################
+# cestr install #
+#################
+ADD cestr_app.py /opt/
+
 # By default when this container runs, simply start the application
 CMD /opt/cestr_app.py

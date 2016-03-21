@@ -5,10 +5,11 @@ MAINTAINER Tige Phillips <tige@tigelane.com>
 # CESTR is a very simple blog tool for demonstrating
 # a three tier application
 
+# Port to access the Flask application on - change if needed.
+EXPOSE 5000
+
 RUN apt-get update
 RUN apt-get -y upgrade
-
-EXPOSE 5000
 
 #################
 # GIT and MYSQL #

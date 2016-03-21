@@ -1,8 +1,10 @@
 #!/usr/bin/python
-from flask import Flask, send_from_directory, request
-app = Flask('cestr')
+from flask import Flask
+app = Flask(__name__)
 
 import MySQLdb
+import click
+
 db = None
 db_addr = ''
 app_port = ''
@@ -51,10 +53,10 @@ def index():
 
 	return show_all_records()
 
-@app.cli.command()
-@app.cli.option('--test', help='mytest')
-def takearg(test):
-    print test
+@click.command()
+@click.option('--db_addr', help='IP Address of the Database.' )
+def takearg(db_addr):
+    print db_addr
 
 if __name__ == '__main__':
 	app.config.update(

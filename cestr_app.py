@@ -5,6 +5,7 @@ app = Flask(__name__)
 import MySQLdb, sys, os
 from datetime import datetime
 
+
 db = None
 db_name = 'chester'
 db_pass = 'mysql'

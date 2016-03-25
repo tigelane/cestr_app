@@ -10,7 +10,7 @@ db = None
 db_name = 'chester'
 db_pass = 'mysql'
 app_port = 5000
-db_addr = os.getenv('SQL_SERVER_IPADDR', '172.16.32.189')
+db_addr = os.getenv('SQL_SERVER_IPADDR', '10.1.1.0')
 print "DB Server: {0}".format(db_addr)
 
 def open_mysql():

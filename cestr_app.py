@@ -63,9 +63,9 @@ def populate_db():
 		cursor.execute(sql_query)
 
 		lines = ['CREATE TABLE entry (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(40), entry VARCHAR(201), entry_date DATE);',
-			'INSERT INTO entry (id, entry, entry_date, name) VALUES (NULL, "We must have a first log entry.", "2006-01-10", "Bob");',
-			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "Hello this is some information for the DB", "2016-03-16", "Tige");',
-			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "It has been a while since the last log entry, so here is a new one.", "2007-10-22", "Jesse");'
+			'INSERT INTO entry (id, entry, entry_date, name) VALUES (NULL, "What is this new thing, a child, the Internet?", "1992-09-01", "Tige");',
+			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "Looks like we worried a a lot for nothing.", "2000-01-01", "Lora");',
+			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "Internet of Things, I thought that it already was..", "2015-12-04", "Tatiana");'
 			]
 
 		# Create some data

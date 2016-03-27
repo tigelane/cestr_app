@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 import MySQLdb, sys, os
@@ -101,15 +101,28 @@ def initialize_db():
 @app.route('/add_row')
 def add_row(text, date, name):
 	# Use the right database
-	open_db()
-
 	sql_query = "INSERT INTO entry (id, entry, entry_date, name) VALUES (NULL, '{0}', '{1}', '{2}');".format(text, date, name)
+	open_db()
 	cursor = db.cursor()	
 	cursor.execute(sql_query)
 	db.commit()
 
 	close_db()
 	return
+
+@app.route('/add_entry', methods=['POST'])
+def add_entry():
+	try:
+		name = request.args.get("name")
+		entry = request.args.get("entry")
+		now = datetime.now()
+		date = "{0}-{1}-{2}".format(now.year, now.month, now.day)
+		add_row(entry, date, name)
+	except:
+		return jsonify({'status': 'FAIL', 'results': "Not able to post to the database!"})
+
+	return jsonify({'status': 'OK', 'results': "Blog Entry Posted!"})
+
 
 @app.route('/show_all_records')
 def show_all_records():

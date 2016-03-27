@@ -64,7 +64,7 @@ def populate_db():
 
 		lines = ['CREATE TABLE entry (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(40), entry VARCHAR(201), entry_date DATE);',
 			'INSERT INTO entry (id, entry, entry_date, name) VALUES (NULL, "What is this new thing, a child, the Internet?", "1992-09-01", "Tige");',
-			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "Looks like we worried a a lot for nothing.", "2000-01-01", "Lora");',
+			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "Looks like we worried a lot for nothing.", "2000-01-01", "Lora");',
 			'INSERT INTO entry (id,entry,entry_date, name) VALUES (NULL, "Internet of Things, I thought that it already was..", "2015-12-04", "Tatiana");'
 			]
 
